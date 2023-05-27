@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Percent to Fraction Converter</title>
+</head>
+<body>
+<h1>Percent to Fraction Converter</h1>
+  <input type="number" id="percent" placeholder="Enter a percent">%<br>
+  <button onclick="convert()">Convert</button>
+<div id="output"></div>
+<script>
+function convert() {
+  var percent = document.getElementById("percent").value;
+  var fraction = percent / 100;
+  if (fraction < 1) {
+    fraction = fraction * 10;
+  }
+  var numerator = parseInt(fraction);
+  var denominator = 10;
+  while (numerator % 2 == 0) {
+    numerator /= 2;
+    denominator /= 2;
+  }
+  while (denominator % 5 == 0) {
+    numerator /= 5;
+    denominator /= 5;
+}
+document.getElementById("output").innerHTML = numerator + "/" + denominator;
+}
+</script>
+</body>
+</html>
